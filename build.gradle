@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "war"
 }
 
 group = 'com.ysj.java.board'
@@ -13,7 +14,19 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
+    // lombok
+    implementation("org.projectlombok:lombok:1.18.38")
+
+    // JSP
     compileOnly("jakarta.servlet:jakarta.servlet-api:6.0.0")
+
+    // JSTL
+    implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1")
+    implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2")
+}
+
+tasks.war {
+    webAppDirectory.set(file("src/main/webapp"))
 }
 
 test {
