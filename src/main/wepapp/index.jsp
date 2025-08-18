@@ -2,14 +2,7 @@
 
 <div>JSP_Board Test site</div>
 
-<%
-    for(int a = 2; a <= 9; a++)
-    {
-%>
-        <a href="http://localhost:8080/gugudan.jsp?dan=<%=a%>">--> gugudan<%=a%></a>
-<%
-    }
-%>
+<a href="http://localhost:8080/usr/article/list">/usr/article/list</a>
 
 <style>
     a {

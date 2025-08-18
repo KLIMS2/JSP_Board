@@ -100,6 +100,8 @@ public class Request
 
   public void view(String path)
   {
+    path = "/jsp" + path; path += ".jsp";
+
     try
     {
       req.getRequestDispatcher(path).forward(req, resp);

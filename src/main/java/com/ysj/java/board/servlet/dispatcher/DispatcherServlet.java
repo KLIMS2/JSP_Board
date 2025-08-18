@@ -3,7 +3,6 @@ package com.ysj.java.board.servlet.dispatcher;
 import com.ysj.java.board.global.common.contain.Container;
 import com.ysj.java.board.global.process.Request;
 import com.ysj.java.board.section.article.controller.ArticleController;
-import com.ysj.java.board.section.article.dto.Article;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -25,7 +24,7 @@ public class DispatcherServlet extends HttpServlet
 
       switch (urlPath)
       {
-        case "/usr/article/list" -> articleController.showList();
+        case "/usr/article/list" -> articleController.showList(rq);
       }
     }
   }
