@@ -1,11 +1,13 @@
 package com.ysj.java.board.global.process;
 
+import com.ysj.java.board.global.utility.Util;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 public class Request
 {
@@ -115,5 +117,10 @@ public class Request
   public String getUrlPath()
   {
     return req.getRequestURI();
+  }
+
+  public <T> List<T> reverseList(List<T> list)
+  {
+    return Util.reverseList(list);
   }
 }

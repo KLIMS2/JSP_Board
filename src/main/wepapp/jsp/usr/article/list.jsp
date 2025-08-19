@@ -6,12 +6,26 @@
     <h3 class="text">> 게시물 리스트 <</h3>
     <h4 class="text">(id | title)</h4>
 
-    <c:forEach var="article" items="${articles}">
-        <div class="text">
-            <span>${article.getId()}: </span>
-            <span>${article.getTitle()}</span>
-        </div>
-    </c:forEach>
+    <table class="text" border="1">
+        <colgroup>
+            <col width="32px">
+            <col width="80px">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="article" items="${articles}">
+                <tr>
+                    <td>${article.getId()}</td>
+                    <td>${article.getTitle()}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 
     <div class="right-box">
         <a class="text" href="http://localhost:8080/">back</a>
@@ -33,11 +47,6 @@
         margin-left: 0px;
     }
 
-    span {
-        margin-left: 7px;
-        margin-right: 3px;
-    }
-
     a {
         display: inline-block;
         margin-top: 10px;
@@ -56,5 +65,11 @@
     .right-box {
         text-align: right;
         margin-right: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>

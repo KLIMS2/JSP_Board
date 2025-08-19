@@ -19,6 +19,7 @@ public class ArticleController
   public void showList(Request rq)
   {
     List<Article> articles = articleService.getArticles();
+    articles = rq.reverseList(articles);
     rq.setAttr("articles", articles);
     rq.view(rq.getUrlPath());
   }
