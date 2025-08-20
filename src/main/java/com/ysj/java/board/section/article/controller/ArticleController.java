@@ -23,4 +23,9 @@ public class ArticleController
     rq.setAttr("articles", articles);
     rq.view(rq.getUrlPath());
   }
+
+  public void showWrite(Request rq)
+  {
+    rq.view(rq.getUrlPath());
+  }
 }

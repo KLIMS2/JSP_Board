@@ -38,8 +38,12 @@
         padding: 0;
     }
 
+    .text {
+        font-size: 200%;
+    }
+
     h3 {
-        margin: 5px;
+        margin-bottom: 5px;
     }
 
     h4 {
@@ -54,7 +58,7 @@
     }
 
     .container {
-        width: 50vw;
+        width: 66vw;
         height: 100vh;
         margin-left: auto;
         margin-right: auto;
@@ -71,5 +75,6 @@
         border-collapse: collapse;
         margin-left: auto;
         margin-right: auto;
+        background-color: white;
     }
 </style>

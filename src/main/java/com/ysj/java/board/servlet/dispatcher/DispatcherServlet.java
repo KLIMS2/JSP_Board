@@ -25,6 +25,7 @@ public class DispatcherServlet extends HttpServlet
       switch (urlPath)
       {
         case "/usr/article/list" -> articleController.showList(rq);
+        case "/usr/article/write" -> articleController.showWrite(rq);
       }
     }
   }
