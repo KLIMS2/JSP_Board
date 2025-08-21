@@ -16,7 +16,7 @@ public class Article
 
   static
   {
-    lastId = 0;
+    lastId = 0L;
   }
 
   public Article(String title, String content)

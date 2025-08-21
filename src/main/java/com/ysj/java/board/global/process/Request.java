@@ -123,4 +123,9 @@ public class Request
   {
     return Util.reverseList(list);
   }
+
+  public String getMethod()
+  {
+    return req.getMethod();
+  }
 }

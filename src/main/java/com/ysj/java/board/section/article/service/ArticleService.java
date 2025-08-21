@@ -19,4 +19,14 @@ public class ArticleService
   {
     return articleRepository.getArticles();
   }
+
+  public void setArticle(Article article)
+  {
+    articleRepository.setArticle(article);
+  }
+
+  public Article getArticle(long id)
+  {
+    return articleRepository.getArticle(id);
+  }
 }

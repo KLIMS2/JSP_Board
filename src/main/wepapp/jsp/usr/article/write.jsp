@@ -2,20 +2,22 @@
 
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
+<title>게시물 작성</title>
+
 <div class="container">
     <h3 class="text">> 게시물 작성 <</h3>
 
-    <form action="" target="_blank">
+    <form action="/usr/article/write" method="post" onsubmit="writeFormCheck(this); event.preventDefault();">
         <div class="form-content">
             <div class="text">
                 <label for="title_input">제목</label>
             </div>
-            <input type="text" name="title" id="title_input" placeholder="제목을 입력해주세요." required>
+            <input type="text" name="title" id="title_input" placeholder="제목을 입력해주세요.">
 
             <div class="text">
                 <label for="content_textarea">내용</label>
             </div>
-            <textarea name="content" id="content_textarea" placeholder="내용을 입력해주세요." cols="55" rows="20" required></textarea>
+            <textarea name="content" id="content_textarea" placeholder="내용을 입력해주세요." cols="55" rows="20"></textarea>
 
             <div class="text">
                 <button type="submit">작성</button>
@@ -27,6 +29,27 @@
         <a class="text" href="http://localhost:8080/">back</a>
     </div>
 </div>
+
+<script>
+    function writeFormCheck(form)
+    {
+        form.title.value = form.title.value.trim();
+        if(form.title.value.length == 0)
+        {
+            alert(form.title.placeholder);
+            return;
+        }
+
+        form.content.value = form.content.value.trim();
+        if(form.content.value.length == 0)
+        {
+            alert(form.content.placeholder);
+            return;
+        }
+
+        form.submit();
+    }
+</script>
 
 <style>
     body {

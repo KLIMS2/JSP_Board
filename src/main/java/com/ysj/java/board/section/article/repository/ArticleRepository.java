@@ -27,4 +27,25 @@ public class ArticleRepository
   {
     return articles;
   }
+
+  public void setArticle(Article article)
+  {
+    articles.add(article);
+  }
+
+  public Article getArticle(long id)
+  {
+    Article findArticle = null;
+
+    for(Article article: articles)
+    {
+      if(article.getId() == id)
+      {
+        findArticle = article;
+        break;
+      }
+    }
+
+    return findArticle;
+  }
 }

@@ -11,22 +11,42 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import static com.ysj.java.board.global.common.object.Constant.ROUTING_NOTFOUND;
+
 @WebServlet("/usr/*")
 public class DispatcherServlet extends HttpServlet
 {
-  public void doGet(Request rq)
+  public void run(Request rq)
   {
     String urlPath = rq.getUrlPath();
+    String urlMethod = rq.getMethod();
 
     if(urlPath.startsWith("/usr/article"))
     {
       ArticleController articleController = Container.articleController;
 
-      switch (urlPath)
+      switch(urlMethod)
       {
-        case "/usr/article/list" -> articleController.showList(rq);
-        case "/usr/article/write" -> articleController.showWrite(rq);
+        case "GET":
+          switch (urlPath)
+          {
+            case "/usr/article/list" -> articleController.showList(rq);
+            case "/usr/article/write" -> articleController.showWrite(rq);
+            case "/usr/article/detail" -> articleController.showDetail(rq);
+          }
+          break;
+
+        case "POST":
+          switch (urlPath)
+          {
+            case "/usr/article/write" -> articleController.doWrite(rq);
+          }
+          break;
       }
+    }
+    else
+    {
+      rq.view(ROUTING_NOTFOUND);
     }
   }
 
@@ -34,6 +54,13 @@ public class DispatcherServlet extends HttpServlet
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     Request rq = new Request(req, resp);
     rq.settingKorean();
-    doGet(rq);
+    run(rq);
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Request rq = new Request(req, resp);
+    rq.settingKorean();
+    run(rq);
   }
 }

@@ -2,14 +2,16 @@
 
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
+<title>게시물 리스트</title>
+
 <div class="container">
     <h3 class="text">> 게시물 리스트 <</h3>
     <h4 class="text">(id | title)</h4>
 
     <table class="text" border="1">
         <colgroup>
-            <col width="32px">
             <col width="80px">
+            <col width="320px">
         </colgroup>
         <thead>
             <tr>
@@ -20,7 +22,11 @@
         <tbody>
             <c:forEach var="article" items="${articles}">
                 <tr>
-                    <td>${article.getId()}</td>
+                    <td>
+                        <a href="/usr/article/detail?id=${article.getId()}">
+                            ${article.getId()}
+                        </a>
+                    </td>
                     <td>${article.getTitle()}</td>
                 </tr>
             </c:forEach>
@@ -51,10 +57,9 @@
         margin-left: 0px;
     }
 
-    a {
+    .right-box > a {
         display: inline-block;
         margin-top: 10px;
-        font-size: 1.5rem;
     }
 
     .container {
@@ -76,5 +81,10 @@
         margin-left: auto;
         margin-right: auto;
         background-color: white;
+    }
+
+    table a {
+        display: block;
+        text-decoration: none;
     }
 </style>
